@@ -1,0 +1,76 @@
+<h1 style="text-align: center;"> liste des utilisateurs</h1>
+
+
+
+<div class="form">
+  <mat-form-field floatPlaceholder="never" color="accent">
+    <input  name="firstname" matInput [(ngModel)]="firstname" (ngModelChange)="search()"  placeholder="saisir un firstname">
+  </mat-form-field>
+</div>
+
+
+<table mat-table [dataSource]="dataUsers" class="mat-elevation-z8">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> id </th>
+    <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="lastname">
+    <th mat-header-cell *matHeaderCellDef> lastname </th>
+    <td mat-cell *matCellDef="let row"> {{row.lastname}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="firstname">
+    <th mat-header-cell *matHeaderCellDef> firstname </th>
+    <td mat-cell *matCellDef="let row"> {{row.firstname}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="adresse">
+    <th mat-header-cell *matHeaderCellDef> adresse </th>
+    <td mat-cell *matCellDef="let row"> {{row.adresse}} </td>
+  </ng-container>
+
+ <ng-container matColumnDef="dateBirth">
+    <th mat-header-cell *matHeaderCellDef> date de naissance </th>
+    <td mat-cell *matCellDef="let row"> {{row.dateBirth}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="username">
+    <th mat-header-cell *matHeaderCellDef> username </th>
+    <td mat-cell *matCellDef="let row"> {{row.username}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="typeUser">
+    <th mat-header-cell *matHeaderCellDef> type User </th>
+    <td mat-cell *matCellDef="let row"> {{row.type}} </td>
+  </ng-container>
+ <!-- Symbol Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> email </th>
+    <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="action">
+    <mat-header-cell *matHeaderCellDef>
+      <button mat-icon-button color="primary"  (click)="addUser()" >
+        <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+      </button>
+    </mat-header-cell>
+    <th mat-header-cell *matHeaderCellDef> actions </th>
+    <td mat-cell *matCellDef="let row">
+      <button mat-icon-button  (click)="editUser(row.id)">
+        <mat-icon aria-label="Edit">edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="deleteUser(row.id)">
+        <mat-icon aria-label="Edit" color="warn">delete</mat-icon>
+      </button> </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+

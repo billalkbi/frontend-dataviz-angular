@@ -1,0 +1,8 @@
+<div #containerRef  style="display: block;">
+<ngx-charts-pie-grid
+[view]="[containerRef.offsetWidth, 400]"
+  [scheme]="colorScheme"
+  [results]="DataGraphe"
+  (select)="onSelect($event)">
+</ngx-charts-pie-grid>
+</div>

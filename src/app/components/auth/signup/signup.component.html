@@ -1,0 +1,75 @@
+
+<mat-card>
+  <mat-card-content>
+    <form class="example-form" [formGroup]="signUpForm">
+
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Firstname</mat-label>
+              <input matInput formControlName="firstname">
+            </mat-form-field>
+         </td>
+         <td>
+           <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>lastname</mat-label>
+            <input matInput  formControlName="lastname">
+           </mat-form-field>
+         </td>
+       </tr>
+      </table>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>adresse</mat-label>
+        <input matInput  formControlName="adresse">
+      </mat-form-field>
+
+      <table class="example-full-width" cellspacing="0">
+       <tr>
+         <td>
+           <mat-form-field class="example-full-width" appearance="fill">
+             <mat-label>date de naissance</mat-label>
+             <input matInput type="date" formControlName="dateBirth">
+           </mat-form-field>
+         </td>
+         <td>
+             <mat-form-field class="example-full-width" appearance="fill">
+               <mat-label>email</mat-label>
+               <input matInput type="email" formControlName="email">
+           </mat-form-field>
+         </td>
+       </tr>
+      </table>
+
+
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>username</mat-label>
+              <input matInput  formControlName="username">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>password</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'"  formControlName="password" >
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+          </td>
+        </tr>
+       </table>
+
+       <div mat-dialog-actions>
+        <button mat-button  [disabled]="signUpForm.invalid"  (click)="saveAdd()">sauvgarder</button>
+
+      </div>
+    </form>
+      <div class="d-sm-flex align-items-left  mb-4">
+
+        <a  mat-button routerLink="/signin">se connecter</a>
+      </div>
+  </mat-card-content>
+</mat-card>

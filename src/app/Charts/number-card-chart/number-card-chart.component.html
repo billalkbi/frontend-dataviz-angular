@@ -1,0 +1,9 @@
+<div #containerRef  style="display: block;">
+<ngx-charts-number-card
+  [view]="[containerRef.offsetWidth, 400]"
+  [scheme]="colorScheme"
+  [results]="DataGraphe"
+  [cardColor]="cardColor"
+  (select)="onSelect($event)">
+</ngx-charts-number-card>
+</div>

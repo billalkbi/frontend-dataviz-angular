@@ -1,0 +1,21 @@
+<div #containerRef  style="display: block;">
+  <ngx-charts-bubble-chart
+[view]="[containerRef.offsetWidth, 400]"
+ [scheme]="colorScheme"
+ [results]="DataGraphe"
+ [xAxis]="showXAxis"
+ [yAxis]="showYAxis"
+  [legend]="showLegend"
+  [showXAxisLabel]="showXAxisLabel"
+   [showYAxisLabel]="showYAxisLabel"
+   [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [yScaleMin]="yScaleMin"
+    [yScaleMax]="yScaleMax"
+    [minRadius]="minRadius"
+    [maxRadius]="maxRadius"
+    (select)="onSelect($event)"
+    (activate)="onActivate($event)"
+    (deactivate)="onDeactivate($event)">
+</ngx-charts-bubble-chart>
+</div>
