@@ -7,8 +7,9 @@ import { NotFoundComponent } from './partials/not-found/not-found.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { UsersComponent } from './components/users/users.component';
 import { AuthGuard } from './components/auth/auth.guard';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { listDashboardsComponent } from './components/dashboard/list-dashboards.component';
 import { DashResizComponent } from './components/dash-resiz.component/dash-resiz.component';
+import { DetailDashboardComponent } from './components/dashboard/detail-dashboard/detail-dashboard.component';
 
 
 
@@ -18,7 +19,8 @@ const routes: Routes = [
   {
     path:'home', canActivate: [AuthGuard] ,
     children :[
-      {path: 'dashboard', component: DashboardComponent},
+      {path: 'dashboard', component: listDashboardsComponent},
+      {path : 'detail-dash', component: DetailDashboardComponent },
       {path: 'dashResiz', component: DashResizComponent},
       {path: 'projects', component: ProjectsComponent},
       {path: 'users', component: UsersComponent  },

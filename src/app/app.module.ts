@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { SigninComponent } from './components/auth/signin/signin.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component'
+import { listDashboardsComponent } from './components/dashboard/list-dashboards.component'
 import { HeaderComponent } from './partials/header/header.component';
 import { FooterComponent } from './partials/footer/footer.component';
 import { NotFoundComponent } from './partials/not-found/not-found.component';
@@ -57,7 +57,10 @@ import { TreeMapChartComponent } from './Charts/tree-map-chart/tree-map-chart.co
 import { NumberCardChartComponent } from './Charts/number-card-chart/number-card-chart.component';
 import { GaugeChartComponent } from './Charts/gauge-chart/gauge-chart.component';
 import { MatDateFormats, MatNativeDateModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-import { AddGrapheDialogComponent } from './components/dashboard/add-graphe.Dialog/add-graphe.Dialog.component';
+import { AddGrapheDialogComponent } from './components/dashboard/detail-dashboard/add-graphe.Dialog/add-graphe.Dialog.component';
+import { DetailDashboardComponent } from './components/dashboard/detail-dashboard/detail-dashboard.component';
+import { EditDashDialogComponent } from './components/dashboard/edit-dash-dialog/edit-dash-dialog.component';
+import { DeleteDashDialogComponent } from './components/dashboard/delete-dash-dialog/delete-dash-dialog.component';
 
 
 
@@ -82,8 +85,12 @@ import { AddGrapheDialogComponent } from './components/dashboard/add-graphe.Dial
     AddProjectDialogComponent,
 
     HomeComponent,
-    DashboardComponent,
+
+    listDashboardsComponent,
+    DetailDashboardComponent,
     AddGrapheDialogComponent,
+    EditDashDialogComponent,
+    DeleteDashDialogComponent,
 
     BubbleChartComponent,
     PieChartComponent,

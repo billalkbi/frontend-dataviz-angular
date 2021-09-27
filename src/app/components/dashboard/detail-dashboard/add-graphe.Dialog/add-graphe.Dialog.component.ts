@@ -1,6 +1,6 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { AddUserDialogComponent } from '../../users/add-user/add-user.dialog.component';
+import { AddUserDialogComponent } from '../../../users/add-user/add-user.dialog.component';
 interface Food {
   value: string;
   viewValue: string;

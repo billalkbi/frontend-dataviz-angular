@@ -34,7 +34,7 @@ export class AuthService {
 
         const decodedToken = this.helper.decodeToken(res.token);
 
-         console.log(decodedToken);
+         console.log(decodedToken.userId);
 
         this.notifierService.refreshLoginStatusFunc();
         this.router.navigateByUrl('/home/acceuil')

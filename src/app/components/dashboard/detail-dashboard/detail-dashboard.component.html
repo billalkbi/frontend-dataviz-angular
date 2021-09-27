@@ -1,0 +1,232 @@
+
+  <!--<node-bubble-chart></node-bubble-chart>
+<node-pie-chart> </node-pie-chart>
+<node-pie-grid-chart></node-pie-grid-chart>
+<node-vertical-bar-chart></node-vertical-bar-chart>
+<node-horizontal-bar-chart></node-horizontal-bar-chart>
+<node-tree-map-chart></node-tree-map-chart>
+<node-number-card-chart></node-number-card-chart>
+<node-gauge-chart></node-gauge-chart>
+<div class="grid-container"> -->
+
+  <div class="sidenav">
+    <a (click)="addGraphe()">nouveau</a>
+    <a href="#services">modifier</a>
+    <a href="#clients">supprimer</a>
+    <a href="#contact">liste des graphes</a>
+  </div>
+
+  <div class="main">
+    <mat-card >
+  <mat-grid-list cols="4" rowHeight="250px">
+
+    <mat-grid-tile colspan=4 rowspan=1.5>
+
+      <mat-card class="dashboard-card">
+
+        <mat-card-header>
+
+          <mat-card-title>
+
+            <p> <i class="material-icons"> bar_chart</i>  Bar Chart</p>
+
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+
+              <mat-icon>more_vert</mat-icon>
+
+            </button>
+
+            <mat-menu #menu="matMenu" xPosition="before">
+
+              <button mat-menu-item>Expand</button>
+
+              <button mat-menu-item>Remove</button>
+
+            </mat-menu>
+
+          </mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-content>
+          <div #containerRef  style="display: block;">
+            <node-tree-map-chart></node-tree-map-chart>
+            </div>
+
+        </mat-card-content>
+
+      </mat-card>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan=2 rowspan=2>
+
+      <mat-card class="dashboard-card">
+
+        <mat-card-header>
+
+          <mat-card-title>
+
+              <i class="material-icons">bubble_chart</i>Radar Chart
+
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+
+              <mat-icon>more_vert</mat-icon>
+
+            </button>
+
+            <mat-menu #menu="matMenu" xPosition="before">
+
+              <button mat-menu-item>Expand</button>
+
+              <button mat-menu-item>Remove</button>
+
+            </mat-menu>
+
+          </mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-content>
+          <div style="display: block; ">
+
+              <node-vertical-bar-chart  ></node-vertical-bar-chart>
+
+          </div>
+
+        </mat-card-content>
+
+      </mat-card>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan=2 rowspan=2>
+
+      <mat-card class="dashboard-card">
+
+        <mat-card-header>
+
+          <mat-card-title>
+
+              <i class="material-icons">pie_chart</i>Pie Chart
+
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+
+              <mat-icon>more_vert</mat-icon>
+
+            </button>
+
+            <mat-menu #menu="matMenu" xPosition="before">
+
+              <button mat-menu-item>Expand</button>
+
+              <button mat-menu-item>Remove</button>
+
+            </mat-menu>
+
+          </mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-content>
+
+            <div style="display: block; ">
+
+              <node-number-card-chart></node-number-card-chart>
+
+            </div>
+
+        </mat-card-content>
+
+      </mat-card>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan=1 rowspan=2>
+
+      <mat-card class="dashboard-card">
+
+        <mat-card-header>
+
+          <mat-card-title>
+
+              <i class="material-icons">pie_chart</i>Pie Chart
+
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+
+              <mat-icon>more_vert</mat-icon>
+
+            </button>
+
+            <mat-menu #menu="matMenu" xPosition="before">
+
+              <button mat-menu-item>Expand</button>
+
+              <button mat-menu-item>Remove</button>
+
+            </mat-menu>
+
+          </mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-content>
+
+            <div style="display: block; ">
+
+              <node-pie-chart> </node-pie-chart>
+            </div>
+
+        </mat-card-content>
+
+      </mat-card>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan=2 rowspan=1>
+
+      <mat-card class="dashboard-card">
+
+        <mat-card-header>
+
+          <mat-card-title>
+
+              <i class="material-icons">pie_chart</i>Pie Chart
+
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+
+              <mat-icon>more_vert</mat-icon>
+
+            </button>
+
+            <mat-menu #menu="matMenu" xPosition="before">
+
+              <button mat-menu-item>Expand</button>
+
+              <button mat-menu-item>Remove</button>
+
+            </mat-menu>
+
+          </mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-content>
+
+            <div >
+
+              <node-horizontal-bar-chart></node-horizontal-bar-chart>
+            </div>
+
+        </mat-card-content>
+
+      </mat-card>
+
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+</mat-card>
+</div>
+
+
