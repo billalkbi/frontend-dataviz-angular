@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { Graphe } from 'src/app/models/graphe';
-import { dashboardsService } from 'src/app/services/dashboards.service';
+import { DashboardsService } from 'src/app/services/dashboards.service';
 @Component({
   selector: 'node-horizontal-bar-chart',
   templateUrl: './horizontal-bar-chart.component.html',
@@ -25,7 +25,7 @@ export class HorizontalBarChartComponent implements OnInit {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   };
 
-  constructor(private dashboardsService :dashboardsService) {
+  constructor(private dashboardsService :DashboardsService) {
 
   }
 

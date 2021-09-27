@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { Graphe } from 'src/app/models/graphe';
-import { dashboardsService } from 'src/app/services/dashboards.service';
+import { DashboardsService } from 'src/app/services/dashboards.service';
 @Component({
   selector: 'node-bubble-chart',
   templateUrl: './bubble-chart.component.html',
@@ -12,7 +12,7 @@ export class BubbleChartComponent implements OnInit {
 
 view:[number, number]=[900,900];
 
-constructor(private dashboardsService :dashboardsService) { }
+constructor(private dashboardsService :DashboardsService) { }
 
 ngOnInit(): void {
   this.getGraphe();

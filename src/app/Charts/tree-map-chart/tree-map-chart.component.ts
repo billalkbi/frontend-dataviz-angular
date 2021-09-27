@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { Graphe } from 'src/app/models/graphe';
-import { dashboardsService } from 'src/app/services/dashboards.service';
+import { DashboardsService } from 'src/app/services/dashboards.service';
 @Component({
   selector: 'node-tree-map-chart',
   templateUrl: './tree-map-chart.component.html',
@@ -10,7 +10,7 @@ import { dashboardsService } from 'src/app/services/dashboards.service';
 export class TreeMapChartComponent implements OnInit {
 
   DataGraphe: Graphe []=[];
-  constructor(private dashboardsService :dashboardsService) { }
+  constructor(private dashboardsService :DashboardsService) { }
 
   ngOnInit(): void {
     this.getGraphe();

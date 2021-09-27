@@ -17,6 +17,7 @@ export class ProjectsComponent implements OnInit {
   dataProjects : Project []=[];
   name: any;
   displayedColumns: string[] = ['id', 'name', 'description', 'creacted', 'action'];
+  router: any;
 
   constructor(private projectsService : ProjectsService,
               public dialog: MatDialog,) { }
@@ -79,6 +80,13 @@ export class ProjectsComponent implements OnInit {
       this.isPopupOpened = false;
     });
   }
+
+  getDashboards(id: string){
+
+    let link = ['/dashboards', id];
+    this.router.navigate(link);
+   }
+
 
 
 }
