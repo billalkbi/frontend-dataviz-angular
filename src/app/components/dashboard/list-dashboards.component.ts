@@ -51,10 +51,10 @@ this.getDashboards();
   addDashboard(){
     this.isPopupOpened = true;
         const dialogRef = this.dialog.open(AddDashDialogComponent, {});
+        dialogRef.afterClosed().subscribe(result => {
+         this.getDashboards();
+        this.isPopupOpened = false;
 
-    dialogRef.afterClosed().subscribe(result => {
-
-      this.isPopupOpened = false;
     });
   }
 

@@ -32,9 +32,9 @@ export class DashboardsService {
 
   }
 
-  addDashboard(project: dashboard): Observable<any> {
-    let API_URL = `${this.REST_API}/projets`;
-    return this.http.post(API_URL,project)
+  addDashboard(dashboard: dashboard): Observable<any> {
+    let API_URL = `${this.REST_API}/dashboards`;
+    return this.http.post(API_URL,dashboard)
       .pipe(
         catchError(this.handleError<any>('addDashboard'))
 

@@ -24,7 +24,6 @@ export class AddDashDialogComponent implements OnInit {
   ngOnInit(): void {
 
     this.DashboardForm= this.formBuilder.group({
-      id: this.formBuilder.control("",[ Validators.required]),
       name : this.formBuilder.control("",[ Validators.required, Validators.minLength(5)]),
       description : this.formBuilder.control("",[ Validators.required, Validators.minLength(5)]),
       created : this.formBuilder.control("",[ Validators.required]),
