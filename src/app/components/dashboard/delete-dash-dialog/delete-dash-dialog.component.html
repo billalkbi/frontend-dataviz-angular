@@ -1,3 +1,11 @@
-<p>
-  delete-dash-dialog works!
-</p>
+<mat-dialog-content class="mat-typography">
+  <h3 mat-dialog-title>voulez-vous vraiment supprimé ce projet?</h3>
+    <p> Id: {{dashboard.id}}</p>
+    <p> name: {{dashboard.name}}</p>
+ </mat-dialog-content>
+
+<div mat-dialog-actions>
+ <button mat-button [mat-dialog-close]="1" (click)="confirmDelete(dashboard.id)">Delete</button>
+ <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+</div>
+

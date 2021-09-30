@@ -1,6 +1,7 @@
-<div #containerRef  style="display: block;">
+<div  #containerRef class="resizable"  >
+
 <ngx-charts-tree-map
-  [view]="[containerRef.offsetWidth, 400]"
+  [view]="[containerRef.offsetWidth, containerRef.offsetHeight]"
   [scheme]="colorScheme"
   [results]="DataGraphe"
   [gradient]="gradient"
@@ -8,4 +9,9 @@
   [labelFormatting]="labelFormatting"
   (select)="onSelect($event)">
 </ngx-charts-tree-map>
+
 </div>
+
+
+
+

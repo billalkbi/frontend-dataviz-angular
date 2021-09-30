@@ -1,0 +1,23 @@
+
+
+.resizable {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  width: 250px;
+  height: 400px;
+  min-width: 400px;
+  min-height: 400px;
+  border: 1px solid grey;
+  border-radius: 8px;
+  resize:both;
+  overflow:overlay;
+
+}
+
+
+
+
+
+

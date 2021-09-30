@@ -26,12 +26,12 @@ export class listDashboardsComponent implements OnInit {
               public dialog: MatDialog,) { }
 
   ngOnInit(): void {
-
+this.getDashboards();
 
   }
 
-  getDashboards(id : any) : void{
-    this.dashboardService.getDashboards(id)
+  getDashboards() : void{
+    this.dashboardService.getDashboards()
             .pipe(first())
             .subscribe(dashboards => this.dataDashboards = dashboards);
 

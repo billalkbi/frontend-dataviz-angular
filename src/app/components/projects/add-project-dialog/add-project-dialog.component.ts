@@ -1,7 +1,6 @@
-import { Component, Inject, NgZone, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 import { Project } from 'src/app/models/projects';
 import { ProjectsService } from 'src/app/services/projects.service';
 import { NotificationService } from 'src/app/services/notification.service';

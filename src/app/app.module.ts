@@ -59,6 +59,7 @@ import { GaugeChartComponent } from './Charts/gauge-chart/gauge-chart.component'
 import { MatDateFormats, MatNativeDateModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { AddGrapheDialogComponent } from './components/dashboard/detail-dashboard/add-graphe.Dialog/add-graphe.Dialog.component';
 import { DetailDashboardComponent } from './components/dashboard/detail-dashboard/detail-dashboard.component';
+import { AddDashDialogComponent } from './components/dashboard/add-dash-dialog/add-dash-dialog.component';
 import { EditDashDialogComponent } from './components/dashboard/edit-dash-dialog/edit-dash-dialog.component';
 import { DeleteDashDialogComponent } from './components/dashboard/delete-dash-dialog/delete-dash-dialog.component';
 
@@ -89,6 +90,7 @@ import { DeleteDashDialogComponent } from './components/dashboard/delete-dash-di
     listDashboardsComponent,
     DetailDashboardComponent,
     AddGrapheDialogComponent,
+    AddDashDialogComponent,
     EditDashDialogComponent,
     DeleteDashDialogComponent,
 

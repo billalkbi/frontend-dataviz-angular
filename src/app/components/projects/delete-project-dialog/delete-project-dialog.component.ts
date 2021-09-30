@@ -12,9 +12,6 @@ export class DeleteProjectDialogComponent implements OnInit {
 
   errorMessage: any;
   project: any;
-
-
-
    constructor(private projectsService: ProjectsService,
                protected notificationService : NotificationService,
                public dialogRef: MatDialogRef<DeleteProjectDialogComponent >,
