@@ -1,8 +1,10 @@
 <h1 style="text-align: center;"> liste des dashboards</h1>
-<div class="form">
-  <mat-form-field floatPlaceholder="never" color="accent">
-    <input  name="firstname" matInput [(ngModel)]="name" (ngModelChange)="search()"  placeholder="saisir un name de projet">
+<div class="form" >
+  <mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>saisir un nom de dashboard</mat-label>
+    <input  name="name" matInput [(ngModel)]="name" (ngModelChange)="search()"  >
   </mat-form-field>
+
 </div>
 
 <table mat-table [dataSource]="dataDashboards" class="mat-elevation-z8">
@@ -27,7 +29,7 @@
 
  <ng-container matColumnDef="creacted">
     <th mat-header-cell *matHeaderCellDef> date de creation</th>
-    <td mat-cell *matCellDef="let row"> {{row.created}} </td>
+    <td mat-cell *matCellDef="let row"> {{row.created | date:"dd/MM/yyyy" }}  </td>
   </ng-container>
 
 

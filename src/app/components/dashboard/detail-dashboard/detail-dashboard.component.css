@@ -1,88 +1,54 @@
-.grid-container {
-
-  margin: 10px;
-
-}
-
-
-
-.dashboard-card {
-
-  position: absolute;
-
-  top: 15px;
-
-  left: 15px;
-
-  right: 15px;
-
-  bottom: 15px;
-
-
-}
-
-
 
 .more-button {
-
   position: absolute;
-
   top: 5px;
-
   right: 10px;
-
 }
 
-
-
 .div-float {
-
   float: left;
-
   padding-right: 50px;
-
 }
 
 /*sidBar*/
 body {
   font-family: "Lato", sans-serif;
 }
-
 .sidenav {
   height: 100%;
   width: 160px;
-  position: fixed;
+  position: absolute	;
   z-index: 1;
   top: 5;
   left: 0;
-  background-color: rgb(10, 10, 10);
+  background-color: rgb(26, 25, 25);
   overflow-x: hidden;
   padding-top: 20px;
 }
-
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 18px;
-  color: #818181;
+  color: #a39f9f;
   display: block;
 }
-
 .sidenav a:hover {
   color: #f1f1f1;
 }
-
 .main {
   margin-left: 160px; /* Same as the width of the sidenav */
   font-size: 28px; /* Increased text to enable scrolling */
   padding: 0px 10px;
-}
 
+}
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
 
+.scroll{
+  overflow:scroll;
+}
 .container {
   margin: 5px;
   display: flex;
@@ -92,5 +58,28 @@ body {
 }
 
 
+.example-box {
+  width: 200px;
+  height: 200px;
+  border: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  cursor: move;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #fff;
+  border-radius: 4px;
+  position: relative;
+  z-index: 1;
+  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+              0 2px 2px 0 rgba(0, 0, 0, 0.14),
+              0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
 
-
+.example-box:active {
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}

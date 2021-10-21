@@ -18,7 +18,7 @@ export class AddDashDialogComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<AddDashDialogComponent>,
              @Inject(MAT_DIALOG_DATA) public data: dashboard,
               private formBuilder : FormBuilder,
-              private projectsService : DashboardsService,
+              private dashboardsService : DashboardsService,
               protected notificationService : NotificationService) { }
 
   ngOnInit(): void {
@@ -27,13 +27,16 @@ export class AddDashDialogComponent implements OnInit {
       name : this.formBuilder.control("",[ Validators.required, Validators.minLength(5)]),
       description : this.formBuilder.control("",[ Validators.required, Validators.minLength(5)]),
       created : this.formBuilder.control("",[ Validators.required]),
+      UserId:localStorage.getItem('idUser'),
+      ProjetId :localStorage.getItem('ProjectId')
+
 
     });
   }
 
   public saveAdd(): void {
-    this.projectsService.addDashboard(this.DashboardForm.value).subscribe(() => {
-      console.log('Data added successfully!')
+    this.dashboardsService.addDashboard(this.DashboardForm.value).subscribe(() => {
+      console.log(this.DashboardForm.value);
       this.notificationService.success('dashboard ajouter avec succes !');
 
     }, (err) => {

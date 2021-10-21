@@ -11,6 +11,11 @@ import { NotificationService } from 'src/app/services/notification.service';
   styleUrls: ['./add-user.dialog.component.css']
 })
 export class AddUserDialogComponent implements OnInit {
+
+  types: any[] = [
+    {value: 'user', viewValue: 'user'},
+    {value: 'admin', viewValue: 'admin'}
+  ];
   hide = true;
   signUpForm: any;
   errorMessage: string |undefined;
@@ -43,6 +48,7 @@ export class AddUserDialogComponent implements OnInit {
   public saveAdd(): void {
     this.auth.signup(this.signUpForm.value).subscribe(() => {
       console.log('Data added successfully!')
+      this.notificationService.success('utilisateur ajouter avec success');
 
     }, (err) => {
       this.errorMessage=err;

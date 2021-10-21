@@ -22,12 +22,14 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.loginSub=this.notifierService.refreshLoginStatuseNotifier$.subscribe(res=>{
       this.isLogged=localStorage.getItem('token');
+
       this.isAdmin();
     })
   }
   LogOut(){
     localStorage.removeItem('token');
     this.isLogged=localStorage.getItem('token');
+    localStorage.clear()
     this.router.navigate(['/signin'])
    }
    ngOnDestroy(){
@@ -37,7 +39,12 @@ export class HeaderComponent implements OnInit {
    }
 
    isAdmin(): boolean{
-
-    return this.authService.typeUser=='admin'? true: false;
+    return localStorage.getItem('typeUser')=='admin'? true: false;
    }
-}
+   getProjects(){
+   const id= localStorage.getItem('idUser');
+    let link = ['home','projects', id];
+    this.router.navigate(link);
+   }
+
+  }

@@ -1,8 +1,47 @@
-<div #containerRef  style="display: block;">
-<ngx-charts-pie-grid
-[view]="[containerRef.offsetWidth, 400]"
-  [scheme]="colorScheme"
-  [results]="DataGraphe"
-  (select)="onSelect($event)">
-</ngx-charts-pie-grid>
-</div>
+
+
+
+
+<div  #containerRef class="example-box" cdkDrag >
+  <div  class="resizable">
+
+    <mat-card-header >
+
+      <mat-card-title>
+
+        <p>   pie-grid</p>
+
+        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+
+          <mat-icon>more_vert</mat-icon>
+
+        </button>
+
+        <mat-menu #menu="matMenu" xPosition="before">
+
+          <button mat-menu-item>modifier</button>
+
+          <button mat-menu-item>supprimer</button>
+
+        </mat-menu>
+
+      </mat-card-title>
+
+    </mat-card-header>
+
+    <mat-card-content class="mrg" >
+
+      <ngx-charts-pie-grid
+      [view]="[containerRef.offsetWidth, containerRef.offsetHeight]"
+        [scheme]="colorScheme"
+        [results]="DataGraphe"
+        (select)="onSelect($event)">
+      </ngx-charts-pie-grid>
+
+    </mat-card-content>
+
+  </div>
+
+  </div>
+
+

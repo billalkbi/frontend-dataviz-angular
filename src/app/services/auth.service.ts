@@ -16,7 +16,8 @@ import { NotifierService } from './notifier.service';
 })
 export class AuthService {
   REST_API: string = environment.ENDPOINTS.api;
-  typeUser : string |undefined;
+  userId : string |undefined;
+  decodedToken:any ;
   helper = new JwtHelperService();
 
   constructor(private http: HttpClient,
@@ -29,15 +30,15 @@ export class AuthService {
 	login(signInForm: any) {
     let API_URL = `${this.REST_API}/login`;
     return this.http.post(API_URL,signInForm).subscribe(
-      (res: any) => {
+      (res:any) => {
         localStorage.setItem('token', res.token);
-
-        const decodedToken = this.helper.decodeToken(res.token);
-
-
+        this.decodedToken = this.helper.decodeToken(res.token);
+        localStorage.setItem('typeUser',this.decodedToken.typeUser);
+        localStorage.setItem('idUser',this.decodedToken.userId);
 
         this.notifierService.refreshLoginStatusFunc();
-        this.router.navigateByUrl('/home/acceuil')
+        this.router.navigateByUrl('/home/projects')
+
       },
       err=>{
         this.notificationService.warn('echec de connexion veuillez réesseyer!');

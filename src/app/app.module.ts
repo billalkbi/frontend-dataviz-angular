@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SigninComponent } from './components/auth/signin/signin.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
-import { HomeComponent } from './components/home/home.component';
 import { listDashboardsComponent } from './components/dashboard/list-dashboards.component'
 import { HeaderComponent } from './partials/header/header.component';
 import { FooterComponent } from './partials/footer/footer.component';
@@ -13,6 +12,7 @@ import { NotFoundComponent } from './partials/not-found/not-found.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ResizableModule } from 'angular-resizable-element';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 //users components
 import { EditUserDialogComponent } from './components/users/edit-user/edit-user.dialog.component';
@@ -85,8 +85,6 @@ import { DeleteDashDialogComponent } from './components/dashboard/delete-dash-di
     EditProjectDialogComponent,
     AddProjectDialogComponent,
 
-    HomeComponent,
-
     listDashboardsComponent,
     DetailDashboardComponent,
     AddGrapheDialogComponent,
@@ -135,7 +133,8 @@ import { DeleteDashDialogComponent } from './components/dashboard/delete-dash-di
     MatSelectModule,
     FormsModule,
     NgxChartsModule,
-    ResizableModule
+    ResizableModule,
+    DragDropModule
 
   ],
   entryComponents: [

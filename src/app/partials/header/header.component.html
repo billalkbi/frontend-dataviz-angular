@@ -1,12 +1,10 @@
-<header>
+<header >
 
   <mat-toolbar color="primary" >
     <mat-icon> insert_chart</mat-icon> dataviz
 
     <div class="spacer" >
-      <a mat-button  routerLink="/home/acceuil"> acceuil </a>
-      <a mat-button routerLink="/home/projects"> projets</a>
-      <a mat-button routerLink="/home/dashboard">dashboard</a>
+      <a mat-button *ngIf="isLogged" routerLink="/home/projects"> projets</a>
       <a mat-button   *ngIf="isAdmin()"  routerLink="/home/users">utilisateurs</a>
     </div>
     <a mat-raised-button color="accent" *ngIf="!isLogged" routerLink="/signin">se connecter</a>

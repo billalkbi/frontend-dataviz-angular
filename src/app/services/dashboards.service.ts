@@ -3,9 +3,10 @@ import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { Chart } from '../models/Chart';
 import { dashboard } from '../models/dashboard';
 import { Graphe } from '../models/graphe';
-import { User } from '../models/users';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,9 +16,9 @@ export class DashboardsService {
 
   constructor(private http: HttpClient) { }
 
-  getDashboards() {
-    const url = `${this.REST_API}/dashboards`;
-    return this.http.get<User>(url).pipe(
+  getDashboards(id :any) {
+    const url = `${this.REST_API}/projets/${id}`;
+    return this.http.get<dashboard>(url).pipe(
 
       catchError(this.handleError<any>('getDashboards'))
     );
@@ -56,9 +57,26 @@ export class DashboardsService {
     )
   }
 
+  getCharts(id: string){
+    const url = `${this.REST_API}/file${id}`;
+    return this.http.get<Chart>(url).pipe(
+      catchError(this.handleError<any>('getCharts'))
+    );
+
+  }
 
   getGraphe() {
     return this.http.get<Graphe[]>(`${this.REST_API}/graphe`)
+  }
+
+  addGraphe(formData: any){
+    let API_URL = `${this.REST_API}/file/upload`;
+    return this.http.post(API_URL,dashboard)
+      .pipe(
+        catchError(this.handleError<any>('addDashboard'))
+
+      )
+
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

@@ -15,7 +15,10 @@ export class ProjectsService {
   constructor(private http: HttpClient) { }
 
   getProjects() {
-    return this.http.get<Project[]>(`${this.REST_API}/projets`)
+    const id =localStorage.getItem('idUser');
+    console.log(id);
+
+    return this.http.get<Project[]>(`${this.REST_API}/users/${id}`)
   }
 
 

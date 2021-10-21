@@ -28,7 +28,10 @@ export const MY_FORMAT: MatDateFormats = {
   ]
 })
 export class EditUserDialogComponent implements OnInit {
-
+  types: any[] = [
+    {value: 'user', viewValue: 'user'},
+    {value: 'admin', viewValue: 'admin'}
+  ];
   hide = true;
   errorMessage: any;
    userEditForm= new FormGroup({

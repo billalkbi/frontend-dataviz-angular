@@ -4,23 +4,23 @@
 <mat-card>
   <mat-card-content>
 
-    <form class="example-form" >
+    <form class="example-form" [formGroup]="addGrapheForm" >
 
         <table class="example-full-width" cellspacing="0">
           <tr>
             <td>
               <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>nom du graphe</mat-label>
-                <input matInput formControlName="firstname">
+                <input matInput formControlName="name">
               </mat-form-field>
            </td>
 
            <td>
             <mat-form-field appearance="fill">
               <mat-label>selectionner le type du graphe</mat-label>
-              <mat-select [(ngModel)]="selectedValue" name="food">
-                <mat-option *ngFor="let food of foods" [value]="food.value">
-                  {{food.viewValue}}
+              <mat-select formControlName="type">
+                <mat-option *ngFor="let type of types" [value]="type.value">
+                  {{type.viewValue}}
                 </mat-option>
               </mat-select>
             </mat-form-field>
@@ -28,21 +28,19 @@
          </tr>
         </table>
 
-        <div class="container">
-          <input type="file" style="display: none" #fileInput accept="image/*" (change)="onChangeFileInput()" />
-          <button mat-raised-button color="primary" class="file-select-button" (click)="onClickFileInputButton()">
-            <mat-icon>attach_file</mat-icon>
-            choisir un fichier
-          </button>
+        <div class="form-group">
+          <label for="file">File</label>
+          <input
+              formControlName="file"
+              id="file"
+              type="file"
+              class="form-control"
+              (change)="uploadFile($event)">
 
-          <p class="file-name" *ngIf="!file; else fileName">Aucun fichier sélectionné</p>
-          <ng-template #fileName>
-            <p class="file-name">{{ file?.name }}</p>
-          </ng-template>
-        </div>
+      </div>
 
          <div mat-dialog-actions>
-          <button mat-button   [mat-dialog-close]="1" (click)="saveAdd()">sauvgarder</button>
+          <button mat-button  [disabled]="addGrapheForm.invalid"  [mat-dialog-close]="1" (click)="saveAdd()">sauvgarder</button>
           <button mat-button (click)="onNoClick()" tabindex="-1">quitter</button>
         </div>
 

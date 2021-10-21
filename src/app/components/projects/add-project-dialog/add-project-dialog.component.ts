@@ -23,17 +23,17 @@ export class AddProjectDialogComponent implements OnInit {
   ngOnInit(): void {
 
     this.addProjectForm= this.formBuilder.group({
-      id: this.formBuilder.control("",[ Validators.required]),
       name : this.formBuilder.control("",[ Validators.required, Validators.minLength(5)]),
       description : this.formBuilder.control("",[ Validators.required, Validators.minLength(5)]),
       created : this.formBuilder.control("",[ Validators.required]),
+      UserId:localStorage.getItem('idUser')
 
     });
   }
 
   public saveAdd(): void {
     this.projectsService.addProject(this.addProjectForm.value).subscribe(() => {
-      console.log('Data added successfully!')
+      console.log( this.addProjectForm.value)
       this.notificationService.success('projet ajouter avec succes !');
 
     }, (err) => {

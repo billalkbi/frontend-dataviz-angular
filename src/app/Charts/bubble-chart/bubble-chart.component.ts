@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { Graphe } from 'src/app/models/graphe';
 import { DashboardsService } from 'src/app/services/dashboards.service';
@@ -8,6 +8,8 @@ import { DashboardsService } from 'src/app/services/dashboards.service';
   styleUrls: ['./bubble-chart.component.css']
 })
 export class BubbleChartComponent implements OnInit {
+  @Input() data ={ } ;
+
   DataGraphe: Graphe []=[];
 
 view:[number, number]=[900,900];

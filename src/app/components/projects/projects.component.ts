@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { Project } from 'src/app/models/projects';
 import { ProjectsService } from 'src/app/services/projects.service';
@@ -17,10 +18,14 @@ export class ProjectsComponent implements OnInit {
   dataProjects : Project []=[];
   name: any;
   displayedColumns: string[] = ['id', 'name', 'description', 'creacted', 'action'];
-  router: any;
+
 
   constructor(private projectsService : ProjectsService,
-              public dialog: MatDialog,) { }
+              private route: ActivatedRoute,
+              private router :Router,
+              public dialog: MatDialog,) {
+
+              }
 
   ngOnInit(): void {
     this.getProjects();
@@ -28,16 +33,18 @@ export class ProjectsComponent implements OnInit {
   }
 
   getProjects() : void{
-    this.projectsService.getProjects()
-            .pipe(first())
-            .subscribe(projects => this.dataProjects = projects);
+    setTimeout(() => {
+
+      this.projectsService.getProjects()
+      .pipe(first())
+      .subscribe(projects => this.dataProjects = projects);
+    }, 300);
 
   }
 
   search(){
     if(this.name==""){
       this.ngOnInit();
-
     }else{
       this.dataProjects=this.dataProjects.filter(res=>{
         return res.name.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
@@ -50,40 +57,33 @@ export class ProjectsComponent implements OnInit {
         const dialogRef = this.dialog.open(AddProjectDialogComponent, {});
 
     dialogRef.afterClosed().subscribe(result => {
-      this.getProjects();
-      this.isPopupOpened = false;
+   this.isPopupOpened = false;
+   this.getProjects();
     });
   }
 
   editProject(id: string) {
     this.isPopupOpened = true;
-        const dialogRef = this.dialog.open(EditProjectDialogComponent, {
-      data: id
-
-    });
-    console.log(id);
+        const dialogRef = this.dialog.open(EditProjectDialogComponent, { data: id });
     dialogRef.afterClosed().subscribe(result => {
-      this.getProjects();
       this.isPopupOpened = false;
+      this.getProjects();
     });
   }
 
   deleteProject(id: string) {
     this.isPopupOpened = true;
-        const dialogRef = this.dialog.open(DeleteProjectDialogComponent, {
-      data: id
-
-    });
-    console.log(id);
+        const dialogRef = this.dialog.open(DeleteProjectDialogComponent, { data: id});
     dialogRef.afterClosed().subscribe(result => {
-      this.getProjects();
-      this.isPopupOpened = false;
+     this.isPopupOpened = false;
+     this.getProjects();
     });
   }
 
   getDashboards(id: string){
 
-    let link = ['/dashboards', id];
+    localStorage.setItem('ProjectId',id);
+    let link = ['home','dashboards', id];
     this.router.navigate(link);
    }
 

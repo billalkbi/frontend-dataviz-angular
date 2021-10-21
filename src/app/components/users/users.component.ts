@@ -8,9 +8,6 @@ import { DeleteUserDialogComponent } from './delete-user/delete-user.dialog.comp
 import { AddUserDialogComponent } from './add-user/add-user.dialog.component';
 import { NotificationService } from 'src/app/services/notification.service';
 
-
-
-
 @Component({
   selector: 'node-users',
   templateUrl: './users.component.html',
@@ -29,9 +26,8 @@ export class UsersComponent implements OnInit {
 ngOnInit(): void {
 
    this.getUsers();
-
-
   }
+
  search(){
    if(this.firstname==""){
      this.ngOnInit();
@@ -45,27 +41,28 @@ ngOnInit(): void {
 
 
 getUsers() : void{
+  setTimeout(() => {
     this.usersService.getUsers()
-            .pipe(first())
-            .subscribe(users => this.dataUsers = users);
+    .pipe(first())
+    .subscribe(users => this.dataUsers = users);
+  }, 500);
+
   }
 
-  addUser(){
+addUser(){
     this.isPopupOpened = true;
         const dialogRef = this.dialog.open(AddUserDialogComponent, {});
-
     dialogRef.afterClosed().subscribe(result => {
       this.isPopupOpened = false;
       this.getUsers();
 
     });
+
   }
 
-  editUser(id: string) {
+editUser(id: string) {
     this.isPopupOpened = true;
-     const dialogRef = this.dialog.open(EditUserDialogComponent, {
-            data: id
-      });
+     const dialogRef = this.dialog.open(EditUserDialogComponent, {data: id });
    dialogRef.afterClosed().subscribe(result => {
       this.isPopupOpened = false;
       this.getUsers();
@@ -76,8 +73,6 @@ getUsers() : void{
   deleteUser(id: string) {
     this.isPopupOpened = true;
         const dialogRef = this.dialog.open(DeleteUserDialogComponent, {data: id });
-    console.log(id);
-
     dialogRef.afterClosed().subscribe(result => {
       this.isPopupOpened = false;
       this.getUsers();

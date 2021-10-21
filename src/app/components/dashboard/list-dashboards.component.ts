@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { dashboard } from 'src/app/models/dashboard';
 import { DashboardsService } from 'src/app/services/dashboards.service';
-import { AddDashDialogComponent } from './add-dash-dialog/add-dash-dialog.component';
+import { AddDashDialogComponent } from'./add-dash-dialog/add-dash-dialog.component'
 import { DeleteDashDialogComponent } from './delete-dash-dialog/delete-dash-dialog.component';
 import { EditDashDialogComponent } from './edit-dash-dialog/edit-dash-dialog.component';
 
@@ -19,21 +19,33 @@ export class listDashboardsComponent implements OnInit {
   isPopupOpened =true;
   dataDashboards : dashboard []=[];
   name: any;
+  projectId :any;
   displayedColumns: string[] = ['id', 'name', 'description', 'creacted', 'action'];
-  router: any;
+
 
   constructor(private dashboardService : DashboardsService,
-              public dialog: MatDialog,) { }
+              public dialog: MatDialog,
+              private route : ActivatedRoute,
+              private router: Router) {
+                 this.route.queryParams.subscribe((params:any) =>{
+                  this.projectId = this.route.snapshot.params.projectId;
+                  localStorage.setItem('ProjectId',this.projectId)
 
+                   })
+                 this.getDashboards();
+              }
   ngOnInit(): void {
-this.getDashboards();
 
   }
 
   getDashboards() : void{
-    this.dashboardService.getDashboards()
-            .pipe(first())
-            .subscribe(dashboards => this.dataDashboards = dashboards);
+
+    setTimeout(() => {
+      localStorage.setItem('ProjectId',this.projectId);
+     this.dashboardService.getDashboards(this.projectId)
+       .pipe(first())
+       .subscribe(dashboards => this.dataDashboards = dashboards);
+   }, 300);
 
   }
 
@@ -66,7 +78,7 @@ this.getDashboards();
     });
     console.log(id);
     dialogRef.afterClosed().subscribe(result => {
-
+     this.getDashboards();
       this.isPopupOpened = false;
     });
   }
@@ -79,18 +91,16 @@ this.getDashboards();
     });
     console.log(id);
     dialogRef.afterClosed().subscribe(result => {
-
+      this.getDashboards();
       this.isPopupOpened = false;
     });
   }
 
-  detailDashboard(id: string){
+  detailDashboard(id: number){
 
-    let link = ['/dashboards', id];
+    let link = ['home','detail-dash', id];
     this.router.navigate(link);
    }
-
-
 
 }
 

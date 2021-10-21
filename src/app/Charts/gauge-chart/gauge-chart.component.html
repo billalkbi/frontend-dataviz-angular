@@ -1,5 +1,37 @@
-<div #containerRef  style="display: block;">
-<ngx-charts-gauge
+
+
+
+
+<div  class="example-box" cdkDrag >
+  <div #containerRef class="resizable">
+
+    <mat-card-header >
+
+      <mat-card-title>
+
+        <p>   tree map chart</p>
+
+        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+
+          <mat-icon>more_vert</mat-icon>
+
+        </button>
+
+        <mat-menu #menu="matMenu" xPosition="before">
+
+          <button mat-menu-item>modifier</button>
+
+          <button mat-menu-item>supprimer</button>
+
+        </mat-menu>
+
+      </mat-card-title>
+
+    </mat-card-header>
+
+    <mat-card-content >
+
+      <ngx-charts-gauge
 [view]="[containerRef.offsetWidth, 400]"
   [scheme]="colorScheme"
   [results]="DataGraphe"
@@ -10,4 +42,10 @@
   (deactivate)="onDeactivate($event)"
   >
 </ngx-charts-gauge>
-</div>
+
+    </mat-card-content>
+
+  </div>
+
+  </div>
+
