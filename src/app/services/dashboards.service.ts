@@ -25,7 +25,7 @@ export class DashboardsService {
   }
 
   getDashboard(id: string): Observable<dashboard> {
-    const url = `${this.REST_API}/dashboards/${id}`;
+    const url = `${this.REST_API}/dashboard/${id}`;
     return this.http.get<dashboard>(url).pipe(
 
       catchError(this.handleError<any>('getDashboard'))
@@ -43,7 +43,7 @@ export class DashboardsService {
   }
 
   updateDashboard(id:any, dashboard:dashboard): Observable<any> {
-    let API_URL = `${this.REST_API}/dashboards/${id}`;
+    let API_URL = `${this.REST_API}/dashboard/${id}`;
     return this.http.put(API_URL,dashboard)
       .pipe(
         catchError(this.handleError<any>('updateDashboard'))
@@ -51,7 +51,7 @@ export class DashboardsService {
   }
 
   deleteDashboard(id: string): Observable<dashboard> {
-    const url = `${this.REST_API}/dashboards/${id}`;
+    const url = `${this.REST_API}/dashboard/${id}`;
     return this.http.delete<dashboard>(url).pipe(
       catchError(this.handleError<any>('deleteDashboard'))
     )

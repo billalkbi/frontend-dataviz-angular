@@ -1,9 +1,7 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { NotificationService } from 'src/app/services/notification.service';
-import { NotifierService } from 'src/app/services/notifier.service';
 import { JwtHelperService } from "@auth0/angular-jwt";
 @Component({
   selector: 'node-signin',

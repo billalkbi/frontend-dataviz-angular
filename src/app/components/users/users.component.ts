@@ -45,7 +45,7 @@ getUsers() : void{
     this.usersService.getUsers()
     .pipe(first())
     .subscribe(users => this.dataUsers = users);
-  }, 500);
+  }, 300);
 
   }
 

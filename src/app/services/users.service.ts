@@ -42,7 +42,7 @@ export class UsersService {
   }
 
   getUser(id: string): Observable<User> {
-    const url = `${this.REST_API}/users/${id}`;
+    const url = `${this.REST_API}/user/${id}`;
     return this.http.get<User>(url).pipe(
 
       catchError(this.handleError<any>('getUser'))
@@ -51,7 +51,7 @@ export class UsersService {
   }
 
   updateUser(id:any, user:User): Observable<any> {
-    let API_URL = `${this.REST_API}/users/${id}`;
+    let API_URL = `${this.REST_API}/user/${id}`;
     return this.http.put(API_URL,user)
       .pipe(
         catchError(this.handleError<any>('updateUser'))
@@ -59,7 +59,7 @@ export class UsersService {
   }
 
   deleteUser(id: string): Observable<User> {
-    const url = `${this.REST_API}/users/${id}`;
+    const url = `${this.REST_API}/user/${id}`;
     return this.http.delete<User>(url).pipe(
       catchError(this.handleError<any>('deleteUser'))
     )

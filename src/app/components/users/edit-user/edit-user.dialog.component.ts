@@ -65,6 +65,7 @@ export class EditUserDialogComponent implements OnInit {
         this.userEditForm.controls.username.setValue(user['username']);
         this.userEditForm.controls.password.setValue(user['password']);
       })
+      console.log('hello');
  }
 
 

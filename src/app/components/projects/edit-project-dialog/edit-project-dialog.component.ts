@@ -18,10 +18,9 @@ export class EditProjectDialogComponent implements OnInit {
     description: new FormControl('',[ Validators.required, Validators.minLength(5)]),
     created: new FormControl('',[ Validators.required]),
 
-
   })
-  constructor(   private projectsService : ProjectsService,
-    protected notificationService : NotificationService,
+  constructor(  private projectsService : ProjectsService,
+                protected notificationService : NotificationService,
                public dialogRef: MatDialogRef<EditProjectDialogComponent>,
                @Inject(MAT_DIALOG_DATA) public id: any) { }
 
