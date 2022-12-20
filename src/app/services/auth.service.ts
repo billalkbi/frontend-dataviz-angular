@@ -9,7 +9,6 @@ import { User } from '../models/users';
 import { NotificationService } from './notification.service';
 import { NotifierService } from './notifier.service';
 
-//import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
